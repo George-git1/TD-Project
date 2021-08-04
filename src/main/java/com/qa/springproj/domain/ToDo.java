@@ -36,8 +36,10 @@ public class ToDo {
 
 	}
 	
+	
 	public ToDo(String name, int priority) {
-		
+		this.name = name;
+		this.priority = priority;
 	}
 
 	public int getId() {

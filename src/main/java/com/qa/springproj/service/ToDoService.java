@@ -30,18 +30,20 @@ public class ToDoService {
 	public ToDo getToDoById(int id) {
 		
 			Optional<ToDo> aInOpt = todoRepository.findById(id);
-			return aInOpt.orElseThrow(() -> new EntityNotFoundException());
+			return aInOpt.orElseThrow(() -> new EntityNotFoundException()); 
+			
 
 	}
 
 
 	public ToDo updateToDo(int id, ToDo todo) {
-		if (!todoRepository.existsById(id))
-			throw new EntityNotFoundException();
+		
+		  if (!todoRepository.existsById(id)) throw new EntityNotFoundException();
+		 
 		ToDo todosInDb = todoRepository.getById(id);
 
 		todosInDb.setName(todo.getName());
-		
+		todosInDb.setPriority(todo.getPriority());
 
 		ToDo updatedToDo = todoRepository.save(todosInDb);
 		return updatedToDo;

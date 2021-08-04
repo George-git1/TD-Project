@@ -55,7 +55,7 @@ public class ToDoController {
 	public ResponseEntity<ToDo> updateToDo(@PathVariable("id") int id, @Valid @RequestBody ToDo todo) {
 		ToDo data = this.todoService.updateToDo(id, todo);
 
-		return new ResponseEntity<ToDo>(data, HttpStatus.OK);
+		return new ResponseEntity<ToDo>(data, HttpStatus.ACCEPTED);
 
 	}
 
