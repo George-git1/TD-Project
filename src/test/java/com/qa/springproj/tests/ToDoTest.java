@@ -56,7 +56,7 @@ public class ToDoTest {
 
 		String ToDoAsJSON = this.mapper.writeValueAsString(todo);
 
-		RequestBuilder mockRequest = post("/todo").contentType(MediaType.APPLICATION_JSON).content(ToDoAsJSON);
+		RequestBuilder mockRequest = post("/todo/create").contentType(MediaType.APPLICATION_JSON).content(ToDoAsJSON);
 
 		ToDo savedToDo = new ToDo(2, "Run a test", 2);
 
@@ -71,7 +71,7 @@ public class ToDoTest {
 
 	@Test
 	public void testReadOne() throws Exception {
-		this.mock.perform(get("/todo/1")).andExpect(status().isOk())
+		this.mock.perform(get("/todo/read/1")).andExpect(status().isOk())
 				.andExpect(content().json(this.mapper.writeValueAsString(testTodoId)));
 	}
 
@@ -82,7 +82,7 @@ public class ToDoTest {
 
 		String result = this.mapper.writeValueAsString(todos);
 
-		RequestBuilder mockRequest = get("/todo").contentType(MediaType.APPLICATION_JSON).content(result);
+		RequestBuilder mockRequest = get("/todo/readall").contentType(MediaType.APPLICATION_JSON).content(result);
 
 		List<ToDo> TodoId = new ArrayList<>();
 		TodoId.add(testTodoId);
@@ -104,7 +104,7 @@ public class ToDoTest {
 		String newToDoAsJson = this.mapper.writeValueAsString(newToDo);
 		String newToDoAsJsonInDb = this.mapper.writeValueAsString(ToDoInDb);
 
-		RequestBuilder mockRequest = put("/todo/1").contentType(MediaType.APPLICATION_JSON).content(newToDoAsJson);
+		RequestBuilder mockRequest = put("/todo/update/1").contentType(MediaType.APPLICATION_JSON).content(newToDoAsJson);
 
 		ResultMatcher matchBody = content().json(newToDoAsJsonInDb);
 
@@ -115,7 +115,7 @@ public class ToDoTest {
 
 	@Test
 	public void testDelete() throws Exception {
-		this.mock.perform(delete("/todo/1")).andExpect(status().isOk());
+		this.mock.perform(delete("/todo/delete/1")).andExpect(status().isOk());
 
 	}
 

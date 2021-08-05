@@ -33,7 +33,7 @@ public class ToDoController {
 		this.todoService = todoService;
 	}
 
-	@GetMapping
+	@GetMapping("/readall")
 	 public ResponseEntity<List<ToDo>> getToDos() { List<ToDo> data =
 	 this.todoService.getToDos();
 	  
@@ -41,7 +41,7 @@ public class ToDoController {
 	
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/read/{id}")
 	public ResponseEntity<ToDo> getToDoById(@PathVariable("id") int id) {
 		ToDo data = this.todoService.getToDoById(id);
 
@@ -51,7 +51,7 @@ public class ToDoController {
 
 	
 
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<ToDo> updateToDo(@PathVariable("id") int id, @Valid @RequestBody ToDo todo) {
 		ToDo data = this.todoService.updateToDo(id, todo);
 
@@ -59,7 +59,7 @@ public class ToDoController {
 
 	}
 
-	@PostMapping
+	@PostMapping("/create")
 	public ResponseEntity<ToDo> createToDo(@Valid @RequestBody ToDo todo) {
 		ToDo data = this.todoService.createToDo(todo);
 
@@ -71,7 +71,7 @@ public class ToDoController {
 		
 	} 
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteToDo(@PathVariable("id") int id) {
 		this.todoService.deleteToDo(id);
 

@@ -38,27 +38,30 @@ public class ToDoService {
 
 	public ToDo updateToDo(int id, ToDo todo) {
 		
-		  if (!todoRepository.existsById(id)) throw new EntityNotFoundException();
+	//	  if (!todoRepository.existsById(id)) throw new EntityNotFoundException();
 		 
-		ToDo todosInDb = todoRepository.getById(id);
+		ToDo todosInDb = todoRepository.findById(id).get();
 
 		todosInDb.setName(todo.getName());
 		todosInDb.setPriority(todo.getPriority());
 
-		ToDo updatedToDo = todoRepository.save(todosInDb);
+		ToDo updatedToDo = todoRepository.saveAndFlush(todosInDb);
 		return updatedToDo;
 	}
 
 	public ToDo createToDo(ToDo todo) {
-		ToDo savedToDo = this.todoRepository.save(todo);
+		ToDo savedToDo = this.todoRepository.saveAndFlush(todo);
 		return savedToDo;
 	}
 
-	public void deleteToDo(int id) {
-		if (!todoRepository.existsById(id))
-			throw new EntityNotFoundException();
+	public String deleteToDo(int id) {
 		todoRepository.deleteById(id);
-
+		if (todoRepository.existsById(id)) {
+			return "Not deleted" + id;
+		}
+		else {
+			return id + "has been deleted.";
+		}
 	}
 
 	
