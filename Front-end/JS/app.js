@@ -177,7 +177,7 @@
           puttable.append(tablehead);
           puttable.append(tablerow);
           console.log(data);
-          putpara.innerHTML=`data updated`;
+          putpara.innerHTML=`To Do Updated`;
       })
       .catch(err => console.log(`something went wrong with error message: ${err}`)) 
 
