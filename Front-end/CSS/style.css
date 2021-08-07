@@ -1,0 +1,54 @@
+* {
+    font-family: italic small-caps bold 16px/2 cursive;
+}
+
+div {
+    background-color: rgb(173, 177, 230);
+    border-radius: 4px;
+}
+
+
+table, th, td {
+    border: rgb(0, 0, 0) 1px solid;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.to-do-container {
+  background-color: #fcdccf;
+  width: 60vw;
+  margin: 2em;
+  padding: 2em;
+  border-top-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border: 3px solid #F7DC6F;
+}
+body {
+    background-color: rgb(173, 204, 230);
+  }
+  p.one {
+  border-style: solid;
+  border-width: 5px;
+}
+footer {
+    background-color: #7aa1c9;
+    padding: .65em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+   }
+   * {
+    
+    font-family: Arial, Helvetica, sans-serif;
+      }
+      h2 {
+        text-decoration: underline;
+      }
+      
+      h1 {
+        text-decoration: underline;
+      }
+      Footer p {
+        font-size: 20px;
+       }

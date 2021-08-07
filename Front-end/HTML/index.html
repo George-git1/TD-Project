@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDL Home Page</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+<body>
+    <h1>To Do list </h1>
+    <h2>Create, Read, Update or Delete to do tasks</h2>
+    <div id="getall">
+    <h2>View todo List</h2>
+    <p>Read all the current To Do's</p>
+    <button id="getallbtn">View Current To Do's </button>
+    <p id="getallpara"></p>
+    <table id="getalltable"></table>
+    </div>
+    
+    <div id="post">
+    <h2>Create New To Do</h2>
+    <p>Create a new todo for the list</p>
+    <label for="post1">To Do Name:</label>
+    <input type="text" name ="post1" id="post1">
+    <br>
+    <label for="post2">To Do Priority:</label>
+    <input type="text" name ="post2" id="post2">
+    <button id="postbtn">Create To Do</button>
+    <p id="postpara"></p>
+    <table id="posttable"></table>
+    </div>
+
+    <div id="put">
+    <h2>Update To Do</h2>
+    <p>Change the name or priority on the list by id</p>
+    <label for="putid" class="putid">Id:</label>
+    <input type="number" name="putid" id="putid" class="putid">
+    <br>
+    <label for="put1">To Do Name:</label>
+    <input type="text" name ="put1" id="put1">
+    <br>
+    <label for="put2">To Do Priority:</label>
+    <input type="text" name ="put2" id="put2">
+    <button id="putbtn">Update To Do</button>
+    <p id="putpara"></p>
+    <table id="puttable"></table>
+    </div>
+
+    <div id="delete">
+    <h2>Delete To Do</h2>
+    <p>Remove a To Do from the list</p>
+    <label for="deleteid">Id:</label>
+    <input type="number" name="deleteid" id="deleteid">
+    <br>
+    <button id="deletebtn">Delete To Do</button>
+    <p id="deletepara"></p>
+    </div>
+<footer><p> 2021 &copy George Project Week 8 </p></footer>
+    <script src="/JS/app.js"></script>
+</body>
+</html> 
