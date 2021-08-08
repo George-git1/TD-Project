@@ -1,5 +1,6 @@
 (function(){
   let getallbtn = document.querySelector("#getallbtn");
+  
   let postbtn = document.querySelector("#postbtn");
   let putbtn = document.querySelector("#putbtn");
   let deletebtn = document.querySelector("#deletebtn");

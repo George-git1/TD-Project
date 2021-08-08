@@ -64,7 +64,7 @@ public class IndexTest {
 
 		indexPage.enterNewToDo(name, priority);
 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		assertThat(indexPage.getCreateMsg().getText()).contains(create);
 
@@ -81,7 +81,7 @@ public class IndexTest {
 
 		indexPage.readBtn();
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		assertThat(indexPage.readAll().getText()).contains(readTest);
 
@@ -92,14 +92,19 @@ public class IndexTest {
 
 		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
 		this.driver.get(indexPage.url);
+		
 		String update = "To Do Updated";
 
-		indexPage.insertIdUpdate("37");
-		indexPage.insertNameInputUpdate("Buy a guitar");
+		indexPage.insertIdUpdate("15");
+		
+		indexPage.insertNameInputUpdate("Buy more guitar strings");
+		
 		indexPage.insertPriorityInputUpdate(3);
 
 		indexPage.updateBtn();
-
+		
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
 		assertThat(indexPage.getUpdateMsg().getText()).contains(update);
 	}
 
@@ -108,7 +113,7 @@ public class IndexTest {
 		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
 		this.driver.get(indexPage.url);
 
-		indexPage.insertIdDelete("36");
+		indexPage.insertIdDelete("57");
 
 		indexPage.deleteBtn();
 
