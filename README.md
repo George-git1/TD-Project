@@ -51,7 +51,7 @@ Tests surpass the industry standard requirment of 80%.
 
 ![Coverage](https://user-images.githubusercontent.com/85874668/128646426-c865696c-0e41-4c5b-ae3f-9fab623e594f.png)
 
-Selenium Tests:
+# Selenium Tests:
 A chrome web driver needs to be added to the files of the project so that Selenium tests can be run. 
 Going to a Selenium test and right clicking Run as a Junit Test will run it for you, in this case the indexTest file.
 They test the functionality of the website, So the CRUD functions and asserting wether they are succesfful. 
