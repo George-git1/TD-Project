@@ -56,7 +56,7 @@ A chrome web driver needs to be added to the files of the project so that Seleni
 Going to a Selenium test and right clicking Run as a Junit Test will run it for you, in this case the indexTest file.
 They test the functionality of the website, So the CRUD functions and asserting wether they are succesfful. 
 
-All technologies the project was built With:
+# All technologies the project was built With:
 Maven - Build Tool and Dependency Management
 Spring Boot - API Development Platform
 Java - Back-End Programming Language
