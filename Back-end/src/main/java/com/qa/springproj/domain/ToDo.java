@@ -35,8 +35,7 @@ public class ToDo {
 		this.priority = priority;
 
 	}
-	
-	
+
 	public ToDo(String name, int priority) {
 		this.name = name;
 		this.priority = priority;
@@ -79,8 +78,9 @@ public class ToDo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		//ToDo other = (ToDo) obj;
-	//	return id == other.id && Objects.equals(name, other.name) && Objects.equals(priority, other.priority);
+		// ToDo other = (ToDo) obj;
+		// return id == other.id && Objects.equals(name, other.name) &&
+		// Objects.equals(priority, other.priority);
 		return true;
 	}
 
@@ -88,7 +88,5 @@ public class ToDo {
 	public String toString() {
 		return "ToDo [id=" + id + ", name=" + name + ", priority=" + priority + "]";
 	}
-
-	
 
 }

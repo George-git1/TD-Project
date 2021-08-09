@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.qa</groupId>
-	<artifactId>tdl</artifactId>
+	<artifactId>td</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tdl-project</name>
+	<name>spring-proj</name>
 	<description>Project for Spring Boot application</description>
 	<properties>
 		<java.version>11</java.version>

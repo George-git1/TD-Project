@@ -37,6 +37,7 @@ public class ToDoUnitTest {
 
 		Mockito.verify(this.repo, Mockito.times(1)).saveAndFlush(runtest);
 	}
+
 // 
 	@Test
 	void testReadById() {
@@ -76,8 +77,8 @@ public class ToDoUnitTest {
 
 	@Test
 	void testUpdate() {
-		
-		ToDo newTask = new ToDo(1,"Run a test", 2);
+
+		ToDo newTask = new ToDo(1, "Run a test", 2);
 		ToDo existingTask = new ToDo(1, "Run more tests", 2);
 
 		System.out.println(existingTask);

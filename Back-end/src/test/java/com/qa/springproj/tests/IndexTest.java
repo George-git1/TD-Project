@@ -1,16 +1,16 @@
 package com.qa.springproj.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+
 import org.openqa.selenium.support.PageFactory;
 
 import com.qa.springproj.seleniumtests.IndexPage;
@@ -19,16 +19,19 @@ public class IndexTest {
 
 	private WebDriver driver;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 
 		/*
 		 * ChromeOptions options = new ChromeOptions(); options.setHeadless(true);
 		 */
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
 
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 	}
 
 	@Test
@@ -38,15 +41,20 @@ public class IndexTest {
 		this.driver.get(indexPage.url);
 
 		assertTrue(indexPage.checkFooter().contains("2021 © George Project Week 8"));
+		
+		Thread.sleep(1000);
 	}
 
 	@Test
 	public void checkTitle() throws InterruptedException {
+		
 		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
 
 		this.driver.get(indexPage.url);
 
 		assertTrue(indexPage.checkTitle().contains("To Do list"));
+		
+		Thread.sleep(1000);
 	}
 
 	@Test
@@ -64,7 +72,7 @@ public class IndexTest {
 
 		indexPage.enterNewToDo(name, priority);
 
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		Thread.sleep(4000);
 
 		assertThat(indexPage.getCreateMsg().getText()).contains(create);
 
@@ -80,8 +88,8 @@ public class IndexTest {
 		String readTest = "Run a test";
 
 		indexPage.readBtn();
-		
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+		Thread.sleep(4000);
 
 		assertThat(indexPage.readAll().getText()).contains(readTest);
 
@@ -91,37 +99,43 @@ public class IndexTest {
 	public void testUpdate() throws InterruptedException {
 
 		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
-		this.driver.get(indexPage.url);
 		
+		this.driver.get(indexPage.url);
+
 		String update = "To Do Updated";
 
-		indexPage.insertIdUpdate("15");
-		
-		indexPage.insertNameInputUpdate("Buy more guitar strings");
-		
+		indexPage.insertIdUpdate("94");
+
+		indexPage.insertNameInputUpdate("Service the guitar");
+
 		indexPage.insertPriorityInputUpdate(3);
 
 		indexPage.updateBtn();
-		
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		
+
+		Thread.sleep(4000);
+
 		assertThat(indexPage.getUpdateMsg().getText()).contains(update);
 	}
 
 	@Test
 	public void testDelete() throws InterruptedException {
+		
 		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+		
 		this.driver.get(indexPage.url);
 
-		indexPage.insertIdDelete("57");
+		indexPage.insertIdDelete("97");
 
 		indexPage.deleteBtn();
+
+		Thread.sleep(4000);
 
 		assertThat(indexPage.getDeleteMsg().getText().contains("Delete To Do"));
 	}
 
-	@After
+	@AfterEach
 	public void teardown() {
+		
 		this.driver.quit();
 	}
 

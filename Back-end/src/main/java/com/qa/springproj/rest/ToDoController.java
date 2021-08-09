@@ -36,11 +36,11 @@ public class ToDoController {
 	}
 
 	@GetMapping("/readall")
-	 public ResponseEntity<List<ToDo>> getToDos() { List<ToDo> data =
-	 this.todoService.getToDos();
-	  
-	  return new ResponseEntity<List<ToDo>>(data, HttpStatus.OK);
-	
+	public ResponseEntity<List<ToDo>> getToDos() {
+		List<ToDo> data = this.todoService.getToDos();
+
+		return new ResponseEntity<List<ToDo>>(data, HttpStatus.OK);
+
 	}
 
 	@GetMapping("/read/{id}")
@@ -50,8 +50,6 @@ public class ToDoController {
 		return new ResponseEntity<ToDo>(data, HttpStatus.OK);
 
 	}
-
-	
 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<ToDo> updateToDo(@PathVariable("id") int id, @Valid @RequestBody ToDo todo) {
@@ -69,9 +67,9 @@ public class ToDoController {
 		headers.setLocation(URI.create("localhost:1999/" + data.getId()));
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-			return new ResponseEntity<ToDo>(data, headers, HttpStatus.CREATED);
-		
-	} 
+		return new ResponseEntity<ToDo>(data, headers, HttpStatus.CREATED);
+
+	}
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteToDo(@PathVariable("id") int id) {

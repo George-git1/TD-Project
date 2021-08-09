@@ -28,18 +28,16 @@ public class ToDoService {
 	}
 
 	public ToDo getToDoById(int id) {
-		
-			Optional<ToDo> aInOpt = todoRepository.findById(id);
-			return aInOpt.orElseThrow(() -> new EntityNotFoundException()); 
-			
+
+		Optional<ToDo> aInOpt = todoRepository.findById(id);
+		return aInOpt.orElseThrow(() -> new EntityNotFoundException());
 
 	}
 
-
 	public ToDo updateToDo(int id, ToDo todo) {
-		
-	//	  if (!todoRepository.existsById(id)) throw new EntityNotFoundException();
-		 
+
+		// if (!todoRepository.existsById(id)) throw new EntityNotFoundException();
+
 		ToDo todosInDb = todoRepository.findById(id).get();
 
 		todosInDb.setName(todo.getName());
@@ -58,11 +56,9 @@ public class ToDoService {
 		todoRepository.deleteById(id);
 		if (todoRepository.existsById(id)) {
 			return "Not deleted" + id;
-		}
-		else {
+		} else {
 			return id + "has been deleted.";
 		}
 	}
 
-	
 }

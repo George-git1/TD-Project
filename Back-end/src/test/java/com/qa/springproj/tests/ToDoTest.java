@@ -1,6 +1,5 @@
 package com.qa.springproj.tests;
 
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -11,7 +10,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -35,7 +33,7 @@ import com.qa.springproj.domain.ToDo;
 @AutoConfigureMockMvc
 @Sql(scripts = { "classpath:todo-schema.sql",
 		"classpath:todo-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
- @ActiveProfiles("test") 
+@ActiveProfiles("test")
 public class ToDoTest {
 
 	@Autowired
@@ -104,13 +102,13 @@ public class ToDoTest {
 		String newToDoAsJson = this.mapper.writeValueAsString(newToDo);
 		String newToDoAsJsonInDb = this.mapper.writeValueAsString(ToDoInDb);
 
-		RequestBuilder mockRequest = put("/todo/update/1").contentType(MediaType.APPLICATION_JSON).content(newToDoAsJson);
+		RequestBuilder mockRequest = put("/todo/update/1").contentType(MediaType.APPLICATION_JSON)
+				.content(newToDoAsJson);
 
 		ResultMatcher matchBody = content().json(newToDoAsJsonInDb);
 
 		this.mock.perform(mockRequest).andExpect(status().isAccepted()).andExpect(matchBody);
 
-	
 	}
 
 	@Test
