@@ -42,7 +42,7 @@ Follow the Instructions below to install it on your local machine, Follow the or
 # Running the tests:
 The tests have both Integration and Unit tests, to run the integration you right click in tests on the file ToDoTest and run as a Junit, while for the unit tests, do the same for the ToDoUnitTest file.
 
-JUnit and Integration tests:
+# JUnit and Integration tests:
 
 ![TestsRan](https://user-images.githubusercontent.com/85874668/128646438-823920df-8705-4a55-ac4c-bce075ac9c37.png)
 
@@ -51,7 +51,7 @@ Tests surpass the industry standard requirment of 80%.
 
 ![Coverage](https://user-images.githubusercontent.com/85874668/128646426-c865696c-0e41-4c5b-ae3f-9fab623e594f.png)
 
-Selenium Tests:
+# Selenium Tests:
 A chrome web driver needs to be added to the files of the project so that Selenium tests can be run. 
 Going to a Selenium test and right clicking Run as a Junit Test will run it for you, in this case the indexTest file.
 They test the functionality of the website, So the CRUD functions and asserting wether they are succesfful. 
